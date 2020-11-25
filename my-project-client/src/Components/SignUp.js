@@ -45,6 +45,7 @@ class SignUp extends React.Component {
                     <input name="housing_type" type="text" placeholder="housing type" value={this.state.housing_type} onChange={this.changeHandler} />
                     <input name="has_yard" type="text" placeholder="have a yard?" value={this.state.has_yard} onChange={this.changeHandler} />
                     <input name="near_park" type="text" placeholder="near a park?" value={this.state.near_park} onChange={this.changeHandler} />
+                    {/* <input name="lifestyle" type= "text" value={this.state.lifestyle} onChange={this.changeHandler} /> */}
                     <label>
                         Activity Level:
                         <select value={this.state.lifestyle} onChange={this.changeHandler}>

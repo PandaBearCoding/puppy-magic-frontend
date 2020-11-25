@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class LogIn extends React.Component {
+class LogIn extends React.Component {
 
     changeHandler = (e) => {
         this.setState({ [e.target.name]: e.target.value })
@@ -24,3 +24,5 @@ export default class LogIn extends React.Component {
     }
 
 }
+
+export default LogIn;
