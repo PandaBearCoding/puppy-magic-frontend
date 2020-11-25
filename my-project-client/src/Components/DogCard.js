@@ -34,7 +34,7 @@ class DogCard extends React.Component {
     localClickHandler = (e) => {
         let target = e.currentTarget.textContent 
         this.props.dogClickHandler(this.props.dog, target)
-        this.props.matchClickHandler(target)
+        // this.props.matchClickHandler(target)
         this.props.incrementIndex()
         // console.log("clicked", e.currentTarget.textContent) 
     }
