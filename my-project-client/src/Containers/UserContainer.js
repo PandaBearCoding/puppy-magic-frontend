@@ -32,7 +32,7 @@ class UserContainer extends React.Component {
         }
 
     updateSubmitHandler = (id, username, name, profile_picture, postcode, age, phone_number, email, 
-            description, housing_type, has_yard, near_park, lifestyle ) => {
+            description, housing_type, has_yard, near_park, location_preferences, distance_preferences) => {
 
         let updateUser = { 
             username: username,
@@ -46,7 +46,8 @@ class UserContainer extends React.Component {
             housing_type: housing_type,
             has_yard: has_yard,
             near_park: near_park,
-            lifestyle: lifestyle
+            location_preferences: location_preferences, 
+            distance_preferences: distance_preferences
         }
         fetch(`http://localhost:4000/api/v1/users/${id}`, {
             method: "PATCH", 

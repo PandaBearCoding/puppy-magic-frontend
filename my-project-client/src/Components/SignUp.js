@@ -14,14 +14,15 @@ class SignUp extends React.Component {
         houseing_type: "",
         has_yard: "", 
         near_park: "",
-        lifestyle: ""
+        location_preference: "",
+        distance_preference: ""
     }
 
 
     localSubmitHandler = (e) => {
         e.preventDefault()
         this.props.newUserSubmitHandler(this.state)
-        this.setState({name: "", username: "", password: "", profile_picture: "", postcode: "", age: "", phone_number: "", email: "", description: "", houseing_type: "", has_yard: "", near_park: "", lifestyle: ""})
+        this.setState({name: "", username: "", password: "", profile_picture: "", postcode: "", age: "", phone_number: "", email: "", description: "", houseing_type: "", has_yard: "", near_park: "", location_preference: "", distance_preference: ""})
     }
 
     changeHandler = (e) => {
@@ -41,19 +42,12 @@ class SignUp extends React.Component {
                     <input name="age" type="number" placeholder="age" value={this.state.age} onChange={this.changeHandler} />
                     <input name="phone_number" type="text" placeholder="phone number" value={this.state.phone_number} onChange={this.changeHandler} />
                     <input name="email" type="text" placeholder="email" value={this.state.email} onChange={this.changeHandler} />
-                    <input name="description" type="text" placeholder="description" value={this.state.description} onChange={this.changeHandler} />
+                    <input name="description" type="text" placeholder="describe yourself" value={this.state.description} onChange={this.changeHandler} />
                     <input name="housing_type" type="text" placeholder="housing type" value={this.state.housing_type} onChange={this.changeHandler} />
                     <input name="has_yard" type="text" placeholder="have a yard?" value={this.state.has_yard} onChange={this.changeHandler} />
                     <input name="near_park" type="text" placeholder="near a park?" value={this.state.near_park} onChange={this.changeHandler} />
-                    {/* <input name="lifestyle" type= "text" value={this.state.lifestyle} onChange={this.changeHandler} /> */}
-                    <label>
-                        Activity Level:
-                        <select value={this.state.lifestyle} onChange={this.changeHandler}>
-                            <option value="Sedentary">Sedentary</option>
-                            <option value="Moderate">Moderate</option>
-                            <option value="Active">Active</option>
-                        </select>
-                    </label> 
+                    <input name="location_preferences" type="text" placeholder="desired dog's postcode" value={this.state.location_preference} onChange={this.changeHandler} />
+                    <input name="distance_preferences" type="text" placeholder="desired dog's distance from you (mi)" value={this.state.distance_preference} onChange={this.changeHandler} />
                     <button className="formbutton">Create Profile</button>
                 </form>
             </div>

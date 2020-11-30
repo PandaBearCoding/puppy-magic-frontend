@@ -8,7 +8,6 @@ class MatchContainer extends React.Component{
     }
 
     render(){ 
-        console.log("MATCHES FROM User Obj in App", this.props.matches)
         if(!this.props.matches){
             return <h1>Matches are loading...</h1>
         }

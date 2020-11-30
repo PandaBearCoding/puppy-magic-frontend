@@ -11,24 +11,20 @@ import NavBar from './Components/NavBar.js';
 class App extends React.Component {
 
   state={
-    user: {},
-    // matches: [],
-    dogApi: []
+    user: {}
   }
 
   componentDidMount(){
-    fetch("http://localhost:4000/api/v1/users/52")
+    fetch("http://localhost:4000/api/v1/users/59")
     .then(resp => resp.json())
-    .then(user => (this.setState({user: user, matches: user.matches})))
+    .then(user => (this.setState({user: user})))
     .catch(console.log)
   }
   
-    // How to pass dog to MatchContainer PART 1
-      // grabs dog obj from API, POSTs it to the DB and sets state
   dogClickHandler = (dog, target) => {
     if (target === "Swipe Right"){
       // console.log("DOG OBJ FROM API INSIDE FIRST FETCH", dog)
-      let newDog = {name: dog.name, profile_picture: dog.photos[0].full, age: dog.age, postcode: dog.contact.address.postcode, description: dog.description, organization: dog.contact.email, breed: dog.breeds.primary, size: dog.size, gender: dog.gender, good_with_cats: dog.environment.cats, good_with_dogs: dog.environment.dogs, good_with_children: dog.environment.children, house_trained: dog.attributes.house_trained, spayed_neutered: dog.attributes.spayed_neutered, special_needs: dog.attributes.special_needs, profile_picture_two: dog.photos[1].full, distance: dog.distance}
+      let newDog = {name: dog.name, profile_picture: dog.primary_photo_cropped.full, age: dog.age, postcode: dog.contact.address.postcode, description: dog.description, organization: dog.contact.email, breed: dog.breeds.primary, size: dog.size, gender: dog.gender, good_with_cats: dog.environment.cats, good_with_dogs: dog.environment.dogs, good_with_children: dog.environment.children, house_trained: dog.attributes.house_trained, spayed_neutered: dog.attributes.spayed_neutered, special_needs: dog.attributes.special_needs, distance: dog.distance}
       // console.log("NEW DOG IN DB", newDog)
       // console.log("USER", this.state.user)
       fetch("http://localhost:4000/api/v1/dogs", {
@@ -41,41 +37,46 @@ class App extends React.Component {
       })
       .then(resp => resp.json())
       .then(dog => {
-        let newDogArray = [dog, ...this.state.dogApi]
+        console.log(dog)
+        let newDogArray = [dog, ...this.state.user.matched_dogs]
+        console.log("inside clickHandler", dog)
         this.setState({
-          dogApi: [newDogArray]
+          user: {...this.state.user, matched_dogs: newDogArray}
+        })
+        let newMatchArray = [dog.matches, ...this.state.user.matches]
+        this.setState({
+          user: {...this.state.user, matches: newMatchArray}
         })
       })
        }else{
       console.log("Not a match")
     }
   }
-
+    // deleting proper dog now but not forcing re-render of the DOM when deleting
   matchDeleteHandler = (matchObj) => {
-    let relationship = this.state.user.matches.find(md => md.user_id === this.state.user.id && md.dog_id && matchObj.id) 
-    // console.log("deleted dog", matchObj)
-    // console.log("relationship", relationship)
-    fetch(`http://localhost:4000/api/v1/users/51/matches/${relationship.id}`, {
+    console.log("User's State", this.state.user.matches)
+    let relationship = this.state.user.matches.find(match => match.user_id === this.state.user.id && match.dog_id && matchObj.id) 
+    console.log("Dog To Delete", matchObj)
+    console.log("Relationship", relationship)
+    fetch(`http://localhost:4000/api/v1/users/59/matches/${relationship.id}`, {
       method: "DELETE"
     })
     .then(response => response.json())
     .then(response => {
-    let newMatchArray = this.state.user.matched_dogs.filter(match_dog => match_dog.id !== matchObj.id)
-    let newRelationshipArray = this.state.user.matches.filter(match => match.id !== matchObj.id)
-    this.setState({user: {...this.state.user, matched_dogs: newMatchArray, matches: newRelationshipArray}})
+      let newMatchedDogsArray = this.state.user.matched_dogs.filter(matchedDog => matchedDog.dog_id !== matchObj.id)
+      let newMatchesArray = this.state.user.matches.filter(match => match.id !== relationship.id)
+      this.setState({user: {...this.state.user, matched_dogs: newMatchedDogsArray, matches: newMatchesArray}})
     })
   }
 
   render(){
-    console.log("STATE", this.state)
-    // console.log("User State", this.state.user)
-    // console.log("match IDs", this.state.user.matches)
-    // console.log("Dog State", this.state.dogApi)
+    console.log("Matches in State", this.state.user.matches)
+    console.log("Matched Dogs in State", this.state.user.matched_dogs)
     return(
       <div className="App">
         <NavBar />
         <LogIn />
-        <DogContainer dogClickHandler={this.dogClickHandler} matchClickHandler={this.matchClickHandler} />
+        <DogContainer dogClickHandler={this.dogClickHandler} matchClickHandler={this.matchClickHandler} user={this.state.user}/>
         <UserContainer />
         <MatchContainer matches={this.state.user.matched_dogs} matchDeleteHandler={this.matchDeleteHandler} />
       </div>
@@ -85,5 +86,3 @@ class App extends React.Component {
 
 export default App;
 
-  // bug - dogs get added to my matches but need a page refresh to show
-  // bug - delete handler doesn't delete specified dog - it deletes dog at top?
