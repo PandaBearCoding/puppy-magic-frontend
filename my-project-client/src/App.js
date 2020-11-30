@@ -52,9 +52,9 @@ class App extends React.Component {
       console.log("Not a match")
     }
   }
-    // deleting proper dog now but not forcing re-render of the DOM when deleting
+
   matchDeleteHandler = (matchObj) => {
-    console.log("User's State", this.state.user.matches)
+    console.log("MD - User's State", this.state.user.matched_dogs)
     let relationship = this.state.user.matches.find(match => match.user_id === this.state.user.id && match.dog_id && matchObj.id) 
     console.log("Dog To Delete", matchObj)
     console.log("Relationship", relationship)
@@ -63,7 +63,7 @@ class App extends React.Component {
     })
     .then(response => response.json())
     .then(response => {
-      let newMatchedDogsArray = this.state.user.matched_dogs.filter(matchedDog => matchedDog.dog_id !== matchObj.id)
+      let newMatchedDogsArray = this.state.user.matched_dogs.filter(matchedDog => matchedDog.id !== matchObj.id)
       let newMatchesArray = this.state.user.matches.filter(match => match.id !== relationship.id)
       this.setState({user: {...this.state.user, matched_dogs: newMatchedDogsArray, matches: newMatchesArray}})
     })

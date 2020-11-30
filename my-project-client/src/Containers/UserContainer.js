@@ -82,23 +82,7 @@ class UserContainer extends React.Component {
         return this.state.userApi.map((el) => <UserCard key={el.id} user={el} updateHandler={this.updateSubmitHandler} deleteHandler={this.deleteHandler} />)
     }
 
-    // matchArray = () => {
-    //     // matched_dogs is a method I created in my BE to get the actual dog objects that belong to the match via the dog's id
-    //     // iterate through matched_dogs of first user to pass down to MatchContainer via matches key
-    //     let iterate = this.state.userApi.map((el) => el.matched_dogs)
-    //     return iterate[0]
-    // }
-
-    // matchIdArray = () => {
-    //     // matches is the join w/ ids that is attached to each user
-    //     // this method gets the dog's ID for POST-ing/DELETING purposes later on
-    //     let needMatchId = this.state.userApi.map((el) => el.matches)
-    //     return needMatchId[0]
-    // }
-
     render(){
-        // let matchHelper = this.matchArray()
-        // let matchIdHelper = this.matchIdArray()
         return(
             <div>
                 <SignUp newUserSubmitHandler={this.newUserSubmitHandler} />

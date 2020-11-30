@@ -63,7 +63,7 @@ class DogCard extends React.Component {
                             this.props.dog.photos[1].full
                             } 
                         /> */}
-                        <img className= "dogCardImage" alt="Sorry, No Image Was Provided For This Pup" src={
+                        <img className= "dogCardImage" alt="" src={
                             this.props.dog.primary_photo_cropped != null
                             ?
                             this.props.dog.primary_photo_cropped.full

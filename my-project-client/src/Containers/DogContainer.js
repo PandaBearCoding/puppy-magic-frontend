@@ -4,15 +4,15 @@ import DogCard from '../Components/DogCard.js';
 class DogContainer extends React.Component {
 
     state = {
-        token: {token_type: "Bearer", expires_in: 3600, access_token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJuSDVyaGVZelZpRlFlM1JXcFFZV0IwZ3oyRnR4M2tPSEwyMDhXZlJGU0diUHUzUGY5NCIsImp0aSI6IjZkMjc0ZTk4NTJkMDg0OTIxOGY4NzQ3Nzk4NzkxOTkxZmM5MmM3ZGZiNjU1NDgwNWE0NjM5NzY4MjU5MjdmMzZjMWM0MmYyNDBiN2RmMWNjIiwiaWF0IjoxNjA2NzY4ODI0LCJuYmYiOjE2MDY3Njg4MjQsImV4cCI6MTYwNjc3MjQyNCwic3ViIjoiIiwic2NvcGVzIjpbXX0.CCf58ZbOwXdcWNC5yKnydp0y2wKkCekpj4tICEcWqr5swbFeHqzme17saXyeS4pZv6wOTsWOw4axgORVgLihU0xMOoAA-PKdGv0vDb3MChx0fniP3dU00p-ASZvOHh9BFn2q0u8_r2MHdvIcLdtJLLyV2fy1e0uG5lW0rTkSbqBYxMimYTO7oOM7tvQyRmsfvifa_2JwJveL96kXpeZi_wgNeS59nZTjj2lbM7WFkiypp3rKHyIw57CaQ2t-C40Ap-2YMXc4VsmsyYeBTvPyXbzA6d10n3BZmTC4thv1XUFVHyy3UueAA5Agh6u2TWVEAAuEP2fLVZyTS3246RqEFg"},
+        token: {token_type: "Bearer", expires_in: 3600, access_token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJuSDVyaGVZelZpRlFlM1JXcFFZV0IwZ3oyRnR4M2tPSEwyMDhXZlJGU0diUHUzUGY5NCIsImp0aSI6IjQ2NjdlMmVkZDhhNjliOGI5YTk4YzE2MGMxNGYzZmJjMzMwYWQwZTU4NjZlYTRjMmNkNWRmZjdlMjFhMDgxODgxZGI5OGNiMzYxOTdjYmY4IiwiaWF0IjoxNjA2NzcyNDc5LCJuYmYiOjE2MDY3NzI0NzksImV4cCI6MTYwNjc3NjA3OSwic3ViIjoiIiwic2NvcGVzIjpbXX0.olPYPPXs_GNvvOct_0c4twbzR2rExL0vnNa5nWcs6oGwXEdvx_d2V0kj53GToxuCqXptakqCB93ypabCNR93v_38l6kxtyEJKsFifNs-IXzytyF29gVtOl2B6d-BeQ59TR9cW3c4kA7e_ElkYx3YT0SxPrxAZdHZIOhZHnxwPjA6FE8pV0pKmUHTkl8fl2t8MYE4t1o_1P8c_U3yzrT53zwkODtWmLQ_DzKNFJmTCeym4ePsCqk9GvA6DQG5pDL7asgFRy9RreVhvbneVX_Whyw_rPvBvqOY-8iHse9ORJh_Z25xIKrixWNb7bEJy7lcQOCoj-_x8PIzyZwXjRrkOw"},
         dogApi: [],
         index: 0,
-        // userApi: [] 
     }
 
     // 1st Fetch: POST request for API to generate a new token for us
     // 2nd Fetch: GET all dogs from API
     componentDidMount () {
+
         // fetch("https://api.petfinder.com/v2/oauth2/token", {
         // method: "POST",
 	    // body: "grant_type=client_credentials&client_id=" + key + "&client_secret=" + secret,
@@ -41,15 +41,11 @@ class DogContainer extends React.Component {
 
     renderDogs = () => {
         let currentDog = this.state.dogApi[this.state.index]
-        // console.log("Inside renderDogs Func", currentDog)
         return (<DogCard key={currentDog.name} dog={currentDog} dogClickHandler={this.props.dogClickHandler} matchClickHandler={this.props.matchClickHandler} incrementIndex={this.incrementIndex} />)
     }
 
     render(){
         // console.log("To Get Token", this.state.token)
-        // console.log("INDEX", this.state.index)
-        // console.log("Location Pref", this.props.user.location_pref[0].postcode)
-        // console.log("Distance Pref", this.props.user.distance_pref[0].distance)
         // console.log("Dogs from API", this.state.dogApi)
         return(
         <>
