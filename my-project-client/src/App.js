@@ -83,10 +83,9 @@ class App extends React.Component {
   // }
 
   matchDeleteHandler = (matchObj) => {
-    console.log("MD - User's State", this.state.user.matched_dogs)
-    let relationship = this.state.user.matches.find(match => match.user_id === this.state.user.id && match.dog_id && matchObj.id) 
-    console.log("Dog To Delete", matchObj)
-    console.log("Relationship", relationship)
+    // console.log("Dog To Delete", matchObj.id)
+    let relationship = this.state.user.matches.find(match => match.id && match.user_id === this.state.user.id && match.dog_id === matchObj.id)
+    // console.log("Relationship", relationship)
     fetch(`http://localhost:4000/api/v1/users/${this.state.user.id}/matches/${relationship.id}`, {
       method: "DELETE"
     })
@@ -99,8 +98,8 @@ class App extends React.Component {
   }
 
   render(){
-    // console.log("Matches in State", this.state.user.matches)
-    // console.log("Matched Dogs in State", this.state.user.matched_dogs)
+    console.log("Matches in State", this.state.user.matches)
+    console.log("Matched Dogs in State", this.state.user.matched_dogs)
     return(
       <div className="App">
         <NavBar />
