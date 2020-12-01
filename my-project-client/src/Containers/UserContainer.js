@@ -1,8 +1,6 @@
 import React from 'react';
 import UserCard from '../Components/UserCard.js';
 import SignUp from '../Components/SignUp.js';
-// import MatchContainer from './MatchContainer.js';
-
 
 class UserContainer extends React.Component {
 
@@ -27,12 +25,12 @@ class UserContainer extends React.Component {
             body: JSON.stringify(newUser)
           })
           .then(response => response.json())
-          .then(user => this.setState({userApi: [ user,...this.state.userApi ]}))
+          .then(user => this.setState({userApi: [ user, ...this.state.userApi ]}))
           .catch(console.log)
         }
 
     updateSubmitHandler = (id, username, name, profile_picture, postcode, age, phone_number, email, 
-            description, housing_type, has_yard, near_park, location_preferences, distance_preferences) => {
+            description, housing_type, has_yard, near_park, distance) => {
 
         let updateUser = { 
             username: username,
@@ -46,8 +44,7 @@ class UserContainer extends React.Component {
             housing_type: housing_type,
             has_yard: has_yard,
             near_park: near_park,
-            location_preferences: location_preferences, 
-            distance_preferences: distance_preferences
+            distance: distance
         }
         fetch(`http://localhost:4000/api/v1/users/${id}`, {
             method: "PATCH", 

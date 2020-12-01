@@ -16,6 +16,7 @@ class LogIn extends React.Component {
                             <input type="username" name="username" placeholder="Username" onChange={this.changeHandler} />
                             <input type="password" name="password" placeholder="Password" onChange={this.changeHandler} />
                             <button className="loginbutton" type="submit">Log In</button>
+                            <button className="loginbutton" type="submit">Sign Up</button>
                         </div>
                     </form>
                 </div>

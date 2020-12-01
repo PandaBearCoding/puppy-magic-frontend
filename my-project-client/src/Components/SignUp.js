@@ -14,15 +14,14 @@ class SignUp extends React.Component {
         houseing_type: "",
         has_yard: "", 
         near_park: "",
-        location_preference: "",
-        distance_preference: ""
+        distance: ""
     }
 
 
     localSubmitHandler = (e) => {
         e.preventDefault()
         this.props.newUserSubmitHandler(this.state)
-        this.setState({name: "", username: "", password: "", profile_picture: "", postcode: "", age: "", phone_number: "", email: "", description: "", houseing_type: "", has_yard: "", near_park: "", location_preference: "", distance_preference: ""})
+        this.setState({name: "", username: "", password: "", profile_picture: "", postcode: "", age: "", phone_number: "", email: "", description: "", houseing_type: "", has_yard: "", near_park: "", distance: ""})
     }
 
     changeHandler = (e) => {
@@ -46,8 +45,7 @@ class SignUp extends React.Component {
                     <input name="housing_type" type="text" placeholder="housing type" value={this.state.housing_type} onChange={this.changeHandler} />
                     <input name="has_yard" type="text" placeholder="have a yard?" value={this.state.has_yard} onChange={this.changeHandler} />
                     <input name="near_park" type="text" placeholder="near a park?" value={this.state.near_park} onChange={this.changeHandler} />
-                    <input name="location_preferences" type="text" placeholder="desired dog's postcode" value={this.state.location_preference} onChange={this.changeHandler} />
-                    <input name="distance_preferences" type="text" placeholder="desired dog's distance from you (mi)" value={this.state.distance_preference} onChange={this.changeHandler} />
+                    <input name="distance" type="text" placeholder="desired dog's distance from you (mi)" value={this.state.distance} onChange={this.changeHandler} />
                     <button className="formbutton">Create Profile</button>
                 </form>
             </div>

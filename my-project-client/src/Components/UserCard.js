@@ -15,8 +15,7 @@ class UserCard extends React.Component {
         housing_type: this.props.user.housing_type,
         has_yard: this.props.user.has_yard,
         near_park: this.props.user.near_park,
-        location_preference: this.props.user.location_pref[0].postcode,
-        distance_preference: this.props.user.distance_pref[0].distance
+        distance: this.props.user.distance
     }
 
     updateClickHandler = (e) => {
@@ -29,7 +28,7 @@ class UserCard extends React.Component {
 
     localUpdateHandler = (e) => {
         e.preventDefault()
-        this.props.updateHandler(this.props.user.id, this.state.username, this.state.name, this.state.profile_picture, this.state.postcode, this.state.age, this.state.phone_number, this.state.email, this.state.description, this.state.housing_type, this.state.has_yard, this.state.near_park, this.state.location_preference, this.state.distance_preference)
+        this.props.updateHandler(this.props.user.id, this.state.username, this.state.name, this.state.profile_picture, this.state.postcode, this.state.age, this.state.phone_number, this.state.email, this.state.description, this.state.housing_type, this.state.has_yard, this.state.near_park, this.state.distance)
         this.setState(previousState => ({
             clicked: !previousState.clicked
         }))
@@ -40,7 +39,7 @@ class UserCard extends React.Component {
     }
 
     render(){
-        let { username, name, profile_picture, postcode, age, phone_number, email, description, housing_type, has_yard, near_park, location_preference, distance_preference } = this.props.user
+        let { username, name, profile_picture, postcode, age, phone_number, email, description, housing_type, has_yard, near_park, distance } = this.props.user
         return(
             <div>
             {this.state.clicked ? (
@@ -56,8 +55,7 @@ class UserCard extends React.Component {
                     <input name="housing_type" type= "text" value={this.state.housing_type} onChange={this.changeHandler} />
                     <input name="has_yard" type= "text" value={this.state.has_yard} onChange={this.changeHandler} />
                     <input name="near_park" type= "text" value={this.state.near_park} onChange={this.changeHandler} />
-                    <input name="location_preference" type="text" placeholder="desired dog's postcode" value={this.state.location_preference} onChange={this.changeHandler} />
-                    <input name="distance_preference" type="text" placeholder="desired dog's distance from you (mi)" value={this.state.distance_preference} onChange={this.changeHandler} />
+                    <input name="distance" type="text" placeholder="desired dog's distance from you (mi)" value={this.state.distance} onChange={this.changeHandler} />
                     <button type="submit">Update Profile</button>
                 </form>
             ) :
@@ -74,8 +72,7 @@ class UserCard extends React.Component {
                 <p>Housing Type: {housing_type}</p>
                 <p>Do You Have A Yard?: {has_yard}</p>
                 <p>Do You Live Near A Park?: {near_park}</p>
-                <p>Desired Dog's Location (postcode): {location_preference}</p>
-                <p>Desired Dog's Distance From You (mi): {distance_preference}</p>
+                <p>Desired Dog's Distance From You (mi): {distance}</p>
                 <button>View My Matches</button>
                 <button onClick={this.updateClickHandler}>Edit Profile</button>
                 <button onClick={this.localDeleteHandler}>Delete Profile</button>

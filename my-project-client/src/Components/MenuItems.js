@@ -6,7 +6,12 @@ export const MenuItems = [
     },
     {
         title: "Profile",
-        url: "http://localhost:3000/users/59",
+        url: "http://localhost:3000/users/61",
+        cName: 'nav-links'
+    },
+    {
+        title: "Sign Out",
+        url: "http://localhost:3000/login",
         cName: 'nav-links'
     },
 ]
