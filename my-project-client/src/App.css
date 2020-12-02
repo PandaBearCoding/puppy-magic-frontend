@@ -1,3 +1,8 @@
+/* body{
+  background-color: palevioletred;
+} */
+
+/* DOG AND MATCH */
 
 .dogCardImage {
   transition: 0.3s;
@@ -10,7 +15,61 @@
   flex: 0 0 33.333333%;
 }
 
-.profileImage {
+.dogTinderCard{
+  text-align: center;
+}
+
+.dogCardPs{
+  color: hotpink;
+  font-size: 20px;
+  font-family: "Lucinda Handwriting", cursive;
+}
+
+.dogCardSpans{
+  font-size: 15px;
+  color: black;
+  font-family: "Georgia", serif;
+  font-weight: bold;
+}
+
+.dogAndMatchCardImage{
+  height: 30%;
+  width: 30%;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  display: inline;
+  border-radius: 50px;
+}
+
+.dogAndMatchCardName{
+  color: hotpink;
+  font-size: 65px;
+}
+
+.matchCard{
+  text-align: center;
+}
+
+.matchCardH1{
+  font-family: "Lucinda Handwriting", cursive;
+  font-weight: bold;
+  font-size: 75px;
+  color: hotpink;
+}
+
+.matchCardDeleteButton{
+  text-align: center;
+}
+
+/* USER */
+
+.userCard{
+  text-align: center;
+  font-weight: bold;
+}
+
+.userProfileImage {
   transition: 0.3s;
   height: 30%;
   width: 50%;
@@ -19,4 +78,151 @@
   text-align: center;
   display: inline;
   flex: 0 0 33.333333%;
+  border-radius: 50px;
 }
+
+.userName{
+  font-family: "Lucinda Handwriting", cursive;
+  font-weight: bold;
+  font-size: 55px;
+  color: hotpink;
+}
+
+.userUserName{
+  font-family: "Lucinda Handwriting", cursive;
+  font-weight: bold;
+  font-size: 25px;
+  color: hotpink;
+}
+
+.userCardPs{
+  color: hotpink;
+  font-size: 20px;
+  font-family: "Lucinda Handwriting", cursive;
+}
+
+.userCardSpans{
+  font-size: 15px;
+  color: black;
+  font-family: "Georgia", serif;
+  font-weight: bold;
+}
+
+/* LOG IN & SIGN UP */
+
+.logIn{
+  text-align: center;
+}
+
+.logIn{
+  width: 200px;
+  padding: 20px;
+  margin: auto;
+}
+
+.logInForm{
+  padding:10px;
+  border: 2px;
+  margin: 5px 0;
+  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+}
+
+.signUpLogInLogo{
+  height: 80%;
+  width: 90%;
+  padding: 10pix;
+  margin: 10pix;
+  text-align: center;
+  display: inline;
+  border-radius: 50px;
+}
+
+.signUp{
+  text-align: center;
+  width: 200px;
+  padding: 20px;
+  margin: auto;
+}
+
+.signUpForm{
+  padding:10px;
+  border: 2px;
+  margin: 5px 0;
+  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+}
+
+/* NAV BAR */
+
+.puppyMagicIcon {
+  background-image: url("https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/38635108_434429280387102_6961077985977827328_n.jpg?_nc_cat=101&ccb=2&_nc_sid=09cbfe&_nc_ohc=5M-8VLbqwecAX9Zilnn&_nc_ht=scontent-lga3-1.xx&oh=c0ff82be91a9b842ba58588e6c62ae92&oe=5FEA5BEE");
+  min-height: 800px;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.navBarContainer {
+  position: absolute;
+  margin: 20px;
+  width: auto;
+}
+
+.navBarLis {
+  list-style-type: none;
+  display: block;
+	width: 200px;
+	float: left;
+  margin-left: 125px;
+  font-family: "Lucinda Handwriting", cursive;
+}
+
+.navItems a {
+  float: right;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  padding: 650px 0px 0px 0px;
+  text-decoration: none;
+  font-size: 45px;
+}
+
+.navItems a:hover {
+  color: hotpink;
+}
+
+
+
+
+
+/* SIGN UP LOG IN STUFF */
+
+/* input[type=text] {
+  padding:10px;
+  border: 2px;
+  margin: 5px 0;
+  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+}
+
+input[type=number] {
+  padding:10px;
+  border: 2px;
+  margin: 5px 0;
+  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+}
+
+input[type=placeholder] {
+  text-align: center;
+} */
+
+/* .formbutton{
+  border-radius: 10px;
+  color: rgb(0, 108, 250);
+  font-size: 15px;
+} */
+
+/* .formbutton:hover {
+  background-color: orange;
+  cursor: pointer;
+} */
+

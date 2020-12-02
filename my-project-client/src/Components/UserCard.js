@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 class UserCard extends React.Component {
 
@@ -41,7 +42,7 @@ class UserCard extends React.Component {
     render(){
         let { username, name, profile_picture, postcode, age, phone_number, email, description, housing_type, has_yard, near_park, distance } = this.props.user
         return(
-            <div>
+            <div className="userCard">
             {this.state.clicked ? (
                 <form onSubmit={this.localUpdateHandler}>
                     <input name="name" type="text" value={this.state.name} onChange={this.changeHandler} />
@@ -61,19 +62,21 @@ class UserCard extends React.Component {
             ) :
             null
             }
-                <h1>{name}</h1>
-                <h3>{username}</h3>
-                <img className="profileImage" alt="" src={profile_picture}/>
-                <p> Postal Code: {postcode}</p>
-                <p> Age: {age}</p>
-                <p>Phone Number: {phone_number}</p>
-                <p>Email: {email}</p>
-                <p>Summary: {description}</p>
-                <p>Housing Type: {housing_type}</p>
-                <p>Do You Have A Yard?: {has_yard}</p>
-                <p>Do You Live Near A Park?: {near_park}</p>
-                <p>Desired Dog's Distance From You (mi): {distance}</p>
-                <button>View My Matches</button>
+                <h1 className="userName">{name}</h1>
+                <h3 className="userUserName">{username}</h3>
+                <img className="userProfileImage" alt="" src={profile_picture}/>
+                <p className= "userCardPs"> Postal Code: <span className="userCardSpans">{postcode}</span></p>
+                <p className= "userCardPs"> Age: <span className="userCardSpans">{age}</span></p>
+                <p className= "userCardPs">Phone Number: <span className="userCardSpans">{phone_number}</span></p>
+                <p className= "userCardPs">Email: <span className="userCardSpans">{email}</span></p>
+                <p className= "userCardPs">Summary: <span className="userCardSpans">{description}</span></p>
+                <p className= "userCardPs">Housing Type: <span className="userCardSpans">{housing_type}</span></p>
+                <p className= "userCardPs">Do You Have A Yard?: <span className="userCardSpans">{has_yard}</span></p>
+                <p className= "userCardPs">Do You Live Near A Park?: <span className="userCardSpans">{near_park}</span></p>
+                <p className= "userCardPs">Desired Dog's Distance From You (mi): <span className="userCardSpans">{distance}</span></p>
+                <NavLink to={`/matches`}>
+                    <button>View My Matches</button>
+                </NavLink>
                 <button onClick={this.updateClickHandler}>Edit Profile</button>
                 <button onClick={this.localDeleteHandler}>Delete Profile</button>
             </div>

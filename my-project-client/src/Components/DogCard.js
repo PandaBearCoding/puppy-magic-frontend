@@ -39,12 +39,12 @@ class DogCard extends React.Component {
         // console.log("FROM DOG CARD", this.props.dog)
         return(
             <div className="tinderCardContainer">
-                <TinderCard
+                <TinderCard className="dogTinderCard"
                 preventSwipe={["up", "down"]}
                 onSwipe={(direction) => this.localSwipeHandler(direction)}
                 >
-                    <div className="dogTinderCard">
-                        <h1>{this.props.dog.name}</h1>
+                    <div>
+                        <h1 className="dogAndMatchCardName">{this.props.dog.name}</h1>
                         {/* <img className="dogCardImage" onClick={this.photoClickHandler} alt="Sorry, No Image Was Provided For This Pup" src={
                             this.state.showImage1
                             ?
@@ -53,7 +53,7 @@ class DogCard extends React.Component {
                             this.props.dog.photos[1].full
                             } 
                         /> */}
-                        <img className= "dogCardImage" alt="" src={
+                        <img className= "dogAndMatchCardImage" alt="" src={
                             this.props.dog.primary_photo_cropped != null
                             ?
                             this.props.dog.primary_photo_cropped.full
@@ -61,21 +61,21 @@ class DogCard extends React.Component {
                             "https://i.pinimg.com/originals/6f/1e/8b/6f1e8b15a860d0083116f8bd9e2778d6.png"
                             }
                         />
-                        <p>Age: {this.props.dog.age}</p>
-                        <p>Gender: {this.props.dog.gender}</p>
-                        <p>Size: {this.props.dog.size}</p>
-                        <p>Primary Breed: {this.props.dog.breeds.primary}</p>
-                        <p>Location: {this.props.dog.contact.address.postcode}</p>
-                        <p>Distance From You (mi): {this.props.dog.distance}</p>
-                        <p>Abbreviated Description: {this.props.dog.description}</p>
-                        {this.props.dog.environment.cats === true ? <p>Good With Cats: Yes</p>: <p>Good With Cats: No</p>}
-                        {this.props.dog.environment.dogs === true ? <p>Good With Dogs: Yes</p>: <p>Good With Dogs: No</p>}
-                        {this.props.dog.environment.children === true ? <p>Good With Children: Yes</p>: <p>Good With Children: No</p>}
-                        {this.props.dog.attributes.house_trained === true ? <p>House Trained: Yes</p>: <p>House Trained: No</p>}
-                        {this.props.dog.attributes.spayed_neutered === true ? <p>Spayed/Neutered: Yes</p>: <p>Spayed/Neutered: No</p>}
-                        {this.props.dog.attributes.special_needs === true ? <p>Special Needs: Yes</p>: <p>Special Needs: No</p>}
-                        <p>Shelter Contact Information: {this.props.dog.contact.email}</p>
-                        <p>PetFinder Link: {this.props.dog.url}</p>
+                        <p className="dogCardPs">Age: <span className="dogCardSpans">{this.props.dog.age}</span></p>
+                        <p className="dogCardPs">Gender: <span className="dogCardSpans">{this.props.dog.gender}</span></p>
+                        <p className="dogCardPs">Size: <span className="dogCardSpans">{this.props.dog.size}</span></p>
+                        <p className="dogCardPs">Primary Breed: <span className="dogCardSpans">{this.props.dog.breeds.primary}</span></p>
+                        <p className="dogCardPs">Location: <span className="dogCardSpans">{this.props.dog.contact.address.postcode}</span></p>
+                        <p className="dogCardPs">Distance From You (mi): <span className="dogCardSpans">{this.props.dog.distance}</span></p>
+                        <p className="dogCardPs">Abbreviated Description: <span className="dogCardSpans">{this.props.dog.description}</span></p>
+                        {this.props.dog.environment.cats === true ? <p className="dogCardPs">Good With Cats: <span className="dogCardSpans">Yes</span></p>: <p className="dogCardPs">Good With Cats: <span className="dogCardSpans">No</span></p>}
+                        {this.props.dog.environment.dogs === true ? <p className="dogCardPs">Good With Dogs: <span className="dogCardSpans">Yes</span></p>: <p className="dogCardPs">Good With Dogs: <span className="dogCardSpans">No</span></p>}
+                        {this.props.dog.environment.children === true ? <p className="dogCardPs">Good With Children: <span className="dogCardSpans">Yes</span></p>: <p className="dogCardPs">Good With Children: <span className="dogCardSpans">No</span></p>}
+                        {this.props.dog.attributes.house_trained === true ? <p className="dogCardPs">House Trained: <span className="dogCardSpans">Yes</span></p>: <p className="dogCardPs">House Trained: <span className="dogCardSpans">No</span></p>}
+                        {this.props.dog.attributes.spayed_neutered === true ? <p className="dogCardPs">Spayed/Neutered: <span className="dogCardSpans">Yes</span></p>: <p className="dogCardPs">Spayed/Neutered: <span className="dogCardSpans">No</span></p>}
+                        {this.props.dog.attributes.special_needs === true ? <p className="dogCardPs">Special Needs: <span className="dogCardSpans">Yes</span></p>: <p className="dogCardPs">Special Needs: <span className="dogCardSpans">No</span></p>}
+                        <p className="dogCardPs">Shelter Contact Information: <span className="dogCardSpans">{this.props.dog.contact.email}</span></p>
+                        <p className="dogCardPs">PetFinder Link: <span className="dogCardSpans">{this.props.dog.url}</span></p>
                         {/* <button onClick={this.localClickHandler}>Swipe Left</button>
                         <button onClick={this.localClickHandler}>Swipe Right</button> */}
                     </div>

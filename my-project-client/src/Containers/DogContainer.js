@@ -1,10 +1,11 @@
 import React from 'react';
 import DogCard from '../Components/DogCard.js';
+import NavBar from '../Components/NavBar.js';
 
 class DogContainer extends React.Component {
 
     state = {
-        token: {token_type: "Bearer", expires_in: 3600, access_token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJuSDVyaGVZelZpRlFlM1JXcFFZV0IwZ3oyRnR4M2tPSEwyMDhXZlJGU0diUHUzUGY5NCIsImp0aSI6ImJlNTFlZDZlNmEzMjhjODE0Y2ViMWZiMTJkZjE4NmE0MGYzN2UxMzAxMWQ5NzBhZjk5NDJhMGQzYjE4YTQ0ZGVlZmM2MTBlN2M4ZjEyNjBjIiwiaWF0IjoxNjA2ODQzMDc5LCJuYmYiOjE2MDY4NDMwNzksImV4cCI6MTYwNjg0NjY3OSwic3ViIjoiIiwic2NvcGVzIjpbXX0.cGuMJhJKYpibsJOL96B1IheIebeNKUYdlQExyE2MONrNjcHIzO9bSFbZvpdeQ_cyZ0xrYceeyH7OW_FDjKHWMsb0iJfFMeaUrJrTOg2tEgtAVMW3uXlNkAfu5kxWD01izIj5WZhjY-7XYIyYr1gZtYE0A9yXkg8wxVPJ61cWgiSeMelJFKGbksovsPk6qQVxEITsum0VNI0aC94KL15OlAMV7hazNWsZuOOkMpmcmNPhmF0Gi9jHrJa0e7ixpiFNjfxKhJ632P5Az5ahlYyaoZv_CcvZwR1JIe5zOVnt2lpDqtsj35agajy7J1Gd8iufBM8Pnz2mjk_FUvZ6VnRgaw"},
+        token: {token_type: "Bearer", expires_in: 3600, access_token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJuSDVyaGVZelZpRlFlM1JXcFFZV0IwZ3oyRnR4M2tPSEwyMDhXZlJGU0diUHUzUGY5NCIsImp0aSI6IjcyNTk1M2RiMThlZGQ5YTNhYzJjMzM1YTFlMGJkYWE4YzlmMzVjZDQwZmM5NDk1ZmJjMWFkMWQyZjc5MTlhZmU0N2Q3ZjdmOGI3NWQ4Mjc1IiwiaWF0IjoxNjA2ODcyMjA1LCJuYmYiOjE2MDY4NzIyMDUsImV4cCI6MTYwNjg3NTgwNSwic3ViIjoiIiwic2NvcGVzIjpbXX0.h4e7aTm1NkdpHyNlvqkXWCUuHEdHXwzXKhnRr7bDEi5kQ0xxRowRBcAGIaWzbwTk4CwBsR5QzeyY8WbQvWCKn_rppdTC4NGT4zs6h_rWJ9VVYHm4Bef7UbmAdhlBan0vQMREZw8vKHVewjmOHu188aFJngJapcbe5sD-CbMJgvH1EhDNcZMyK1A8FiHWfLGCAPSN0rvjcl1cFCNEXc9P0u-dq_GLi1FghX6EjW0SxeQQAt6S0X-kQtwLGOs1KkuLld3aZUt5OMai9XXgkXU3mp38wxLM9BLsZ2TBKTjbD7fmO7UrHmloMbr3kSMjxU3mcz1VqxPr7DhJX03_3yVgsw"},
         dogApi: [],
         index: 0,
         distance: 100, 
@@ -15,8 +16,8 @@ class DogContainer extends React.Component {
 
     // 1st Fetch: POST request for API to generate a new token for us
     // 2nd Fetch: GET all dogs from API
-    componentDidMount () {
-     
+    componentDidMount() {
+
         // fetch("https://api.petfinder.com/v2/oauth2/token", {
         // method: "POST",
 	    // body: "grant_type=client_credentials&client_id=" + key + "&client_secret=" + secret,
@@ -48,10 +49,12 @@ class DogContainer extends React.Component {
     }
 
     render(){
+        // console.log(this.props.user)
         // console.log("To Get Token", this.state.token)
         // console.log("Dogs from API", this.state.dogApi)
         return(
         <>
+        <NavBar />
             {this.state.dogApi.length > 0 ? 
             <div>
                 <h1>{this.renderDogs()}</h1>

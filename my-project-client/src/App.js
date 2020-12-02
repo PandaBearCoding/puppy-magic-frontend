@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
+import Welcome from './Components/Welcome.js';
 import DogContainer from './Containers/DogContainer.js';
 import UserContainer from './Containers/UserContainer.js';
 import MatchContainer from './Containers/MatchContainer.js';
 import LogIn from './Components/LogIn.js';
-import NavBar from './Components/NavBar.js';
+import { Route, Switch } from 'react-router-dom'
 
 class App extends React.Component {
 
@@ -98,16 +99,24 @@ class App extends React.Component {
   }
 
   render(){
-    console.log("Matches in State", this.state.user.matches)
-    console.log("Matched Dogs in State", this.state.user.matched_dogs)
+    // console.log("Matches in State", this.state.user.matches)
+    // console.log("Matched Dogs in State", this.state.user.matched_dogs)
+    console.log(this.state.user)
     return(
-      <div className="App">
-        <NavBar />
-        <LogIn />
-        <DogContainer dogSwipeHandler={this.dogSwipeHandler} matchClickHandler={this.matchClickHandler} user={this.state.user}/>
-        <UserContainer />
-        <MatchContainer matches={this.state.user.matched_dogs} matchDeleteHandler={this.matchDeleteHandler} />
-      </div>
+        <div className="App">
+          <Switch>
+          <Route path="/" exact render={() => <DogContainer dogSwipeHandler={this.dogSwipeHandler} matchClickHandler={this.matchClickHandler} user={this.state.user} />} /> 
+            <Route path="/welcome" component={Welcome} />
+            <Route LogIn path="/login" component={LogIn} />
+            <Route path="/users" component={UserContainer} /> 
+            <Route path="/matches" render={() => <MatchContainer matches={this.state.user.matched_dogs} matchDeleteHandler={this.matchDeleteHandler} user={this.state.user}/>} />
+          </Switch>
+
+          {/* <LogIn /> */}
+          {/* <DogContainer dogSwipeHandler={this.dogSwipeHandler} matchClickHandler={this.matchClickHandler} user={this.state.user}/> */}
+          {/* <UserContainer /> */}
+          {/* <MatchContainer matches={this.state.user.matched_dogs} matchDeleteHandler={this.matchDeleteHandler} /> */}
+        </div>
     )
   }
 }

@@ -10,7 +10,7 @@ export const MenuItems = [
         cName: 'nav-links'
     },
     {
-        title: "Sign Out",
+        title: "Log Out",
         url: "http://localhost:3000/login",
         cName: 'nav-links'
     },

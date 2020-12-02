@@ -1,6 +1,8 @@
 import React from 'react';
 import UserCard from '../Components/UserCard.js';
 import SignUp from '../Components/SignUp.js';
+import NavBar from '../Components/NavBar.js';
+import { Route, Switch } from 'react-router-dom';
 
 class UserContainer extends React.Component {
 
@@ -82,8 +84,25 @@ class UserContainer extends React.Component {
     render(){
         return(
             <div>
-                <SignUp newUserSubmitHandler={this.newUserSubmitHandler} />
-                {this.renderUsers()}
+                {/* <SignUp newUserSubmitHandler={this.newUserSubmitHandler} />
+                <NavBar /> 
+                {this.renderUsers()} */}
+                <Switch>
+                    <Route path="/users/signup" render={() => {
+                        return(
+                        <SignUp newUserSubmitHandler={this.newUserSubmitHandler} />
+                        )
+                    }} />
+                    <Route path="/users" render={() => {
+                        return(
+                            <div>
+                                <NavBar />
+                                {this.renderUsers()}
+                            </div>
+                        )
+                    }}/>
+                     
+                </Switch>
             </div>
         )
     }

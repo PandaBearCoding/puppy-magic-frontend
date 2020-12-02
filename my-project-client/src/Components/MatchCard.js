@@ -1,14 +1,15 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom'
 
 class MatchCard extends React.Component{
     // state = {
-    //     showImage1: true
+    //     goToShow: false
     // }
 
     // photoClickHandler = (e) => {
     //     this.setState((prevState) => {
     //         return {
-    //             showImage1: !prevState.showImage1
+    //             goToShow: !prevState.goToShow
     //         }
     //     })
     // }
@@ -19,11 +20,12 @@ class MatchCard extends React.Component{
     
     render(){
         let { name, profile_picture } = this.props.match
-       
+    //    console.log("match props DAWGGGG", this.props.match)
         return(
             <div className="matchCard" >
-                <h1>{name}</h1>
-                <img className= "dogCardImage" alt="" src={
+                <h1 className="dogAndMatchCardName">{name}</h1>
+                <NavLink to={`/matches/${this.props.match.id}`}>
+                <img className= "dogAndMatchCardImage" alt="" src={
                             profile_picture != null
                             ?
                             profile_picture
@@ -31,10 +33,16 @@ class MatchCard extends React.Component{
                             "https://i.pinimg.com/originals/6f/1e/8b/6f1e8b15a860d0083116f8bd9e2778d6.png"
                             }
                 />
-                <button onClick={this.localDeleteHandler}>❌</button>
+                </NavLink>
+                <br></br>
+                <div>
+                    <button className="matchCardDeleteButton" onClick={this.localDeleteHandler}>❌</button>
+                </div>
             </div>
         )
     }
 }
 
 export default MatchCard;
+
+
