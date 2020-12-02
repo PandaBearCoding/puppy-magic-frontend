@@ -7,7 +7,7 @@ import { Route, Switch } from 'react-router-dom';
 class DogContainer extends React.Component {
 
     state = {
-        token: {token_type: "Bearer", expires_in: 3600, access_token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJuSDVyaGVZelZpRlFlM1JXcFFZV0IwZ3oyRnR4M2tPSEwyMDhXZlJGU0diUHUzUGY5NCIsImp0aSI6IjFhYzFmOTk2NjNmOTBjNzY1YTE0ZTU3NWVkMzY4OWQ4MGEzNWI4OGQ4NWFlNWQ0Yjg0YzY1ZDNiMmU0NGJhMDAwY2ZlZDA5ZmE5ZTBiZWIzIiwiaWF0IjoxNjA2OTI4NjI5LCJuYmYiOjE2MDY5Mjg2MjksImV4cCI6MTYwNjkzMjIyOSwic3ViIjoiIiwic2NvcGVzIjpbXX0.Exk95eV7UjE6hEvWTRTr92tnP--EdLFo0ESjw5u-5OTd7LaMFwblKuBCAmg-Q7JAurOKCzYuUmsNmGrgtnuTpwKYHE-YYZ0O0e1q7H2slCV8fQ3pc-uWpxFf634kSLx1zHIn43QP9jE5G8frq2LNNXUptmKKm0dKdRif6eqzD7OJ9YUcUUL923n0sUOg510xxUx5AdGH2HbVwWeAbixIdf8AbyRz1bu6N7wDfoZ80NCs45lSdYQ1NZKFSVeuJFTFcAfh_yGQ-P63WB3kPZERODmYWO3k5zs9ILQb7KYIz6hSAfi37oF8FHSzVMH0uyMU7lWgH4uQqgVC-bEkZspMtg"},
+        token: {token_type: "Bearer", expires_in: 3600, access_token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJuSDVyaGVZelZpRlFlM1JXcFFZV0IwZ3oyRnR4M2tPSEwyMDhXZlJGU0diUHUzUGY5NCIsImp0aSI6IjU4OTZjZWY0MGUxZmZhNTZjMGFhZGNiMDRkYjY4MTRjOTFiMWVhYTkxNWM4MzBiZGQ4Yjc0YzE2MTI5ZDIzOWZkOGQzYzhiZWQ4ZjU4M2JlIiwiaWF0IjoxNjA2OTQ3OTI4LCJuYmYiOjE2MDY5NDc5MjgsImV4cCI6MTYwNjk1MTUyOCwic3ViIjoiIiwic2NvcGVzIjpbXX0.PlGWxyqp-F-ko1OWpSQcNFnVZ01jGekNNcD0PNMT8OHA1gmlhR8hootagGQ1kD2jGQgILjvRrdM2KsPUjqky1wnzHwlZI0OycMAupJo-q0z6CiZegH9LN6sspGLtkruWfM7NplDWGVHTWLqSTIquTJ4QNN8FqYkELkf-TNi0D-yG5tT0OkQT7xF_wKdIJdNxhQdsCvtk9Hh75Zh5TcGqIU3zvN_C6AQf6stXPSGlEh8gE0Y-LyEAqKQPgUKX8-cGcCl_upahkgqM2XBDn13-pCIsiX3UQBquUjkCcM5fyd8zY88DvoRKGxOH3mewUttWC6jkWUSmZLrv_HrsiYCakA"},
         dogApi: [],
         index: 0,
         distance: 100, 
@@ -21,7 +21,7 @@ class DogContainer extends React.Component {
     // 1st Fetch: POST request for API to generate a new token for us
     // 2nd Fetch: GET all dogs from API
     componentDidMount() {
-     
+      
         // fetch("https://api.petfinder.com/v2/oauth2/token", {
         // method: "POST",
 	    // body: "grant_type=client_credentials&client_id=" + key + "&client_secret=" + secret,
@@ -32,8 +32,8 @@ class DogContainer extends React.Component {
         // .then(response => response.json())
         // .then(data => this.setState({token: data}))
 
-        console.log("CDM", this.props.user.distance)
-        console.log("CDM", this.props.user.postcode)
+        // console.log("CDM", this.props.user.distance)
+        // console.log("CDM", this.props.user.postcode)
         
         fetch(`https://api.petfinder.com/v2/animals?type=dog&distance=${this.state.distance}&location=${this.state.postcode}`, {
             headers: {

@@ -1,5 +1,5 @@
 import React from 'react';
-// import {MenuItems} from './MenuItems';
+import {MenuItems} from './MenuItems';
 import {NavLink} from 'react-router-dom';
 
 class NavBar extends React.Component{
@@ -10,8 +10,8 @@ class NavBar extends React.Component{
                 <div className="puppyMagicIcon">
                     <div className="navBarContainer">
                         <div className="navItems">
-                            <ul className= "navBarLis" >
-                                <NavLink to={{pathname: "/puppymagic"}}>
+                            <ul>
+                                {/* <NavLink to={{pathname: "/puppymagic"}}>
                                     Home
                                 </NavLink>
                                 <NavLink to="/users/65">
@@ -19,8 +19,8 @@ class NavBar extends React.Component{
                                 </NavLink>
                                 <NavLink to="//puppymagic/welcome">
                                     Sign Out
-                                </NavLink>
-                                {/* {MenuItems.map((item, index) => {
+                                </NavLink> */}
+                                {MenuItems.map((item, index) => {
                                     return (
                                         <li className= "navBarLis" key={index}>
                                             <a className={item.cName} href={item.url}>
@@ -28,7 +28,7 @@ class NavBar extends React.Component{
                                             </a>
                                         </li>
                                     )
-                                })} */}
+                                })}
                             </ul>
                         </div>
                     </div>
