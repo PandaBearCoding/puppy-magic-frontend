@@ -98,17 +98,21 @@ class App extends React.Component {
     })
   }
 
+  handleUserChange= (newArray) => {
+    this.setState({user: newArray})
+  }
+
   render(){
     // console.log("Matches in State", this.state.user.matches)
     // console.log("Matched Dogs in State", this.state.user.matched_dogs)
-    console.log(this.state.user)
+    console.log("App.js", this.state.user)
     return(
         <div className="App">
           <Switch>
-          <Route path="/puppymagic" render={() => <DogContainer dogSwipeHandler={this.dogSwipeHandler} matchClickHandler={this.matchClickHandler} user={this.state.user} />} /> 
+          <Route path="/puppymagic" render={() => <DogContainer dogSwipeHandler={this.dogSwipeHandler} matchClickHandler={this.matchClickHandler}  user={this.state.user} />} /> 
             {/* <Route exact path="/" component={Welcome} /> */}
             <Route LogIn path="/login" component={LogIn} />
-            <Route path="/users" component={UserContainer} /> 
+            <Route path="/users" render={() => <UserContainer handleUserChange={this.handleUserChange} />} /> 
             <Route path="/matches" render={() => <MatchContainer matches={this.state.user.matched_dogs} matchDeleteHandler={this.matchDeleteHandler} />} />
           </Switch>
 

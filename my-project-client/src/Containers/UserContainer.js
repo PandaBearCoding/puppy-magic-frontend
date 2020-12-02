@@ -62,6 +62,7 @@ class UserContainer extends React.Component {
             let foundObject = newArray.find(el => el.id === user.id)
              newArray[newArray.indexOf(foundObject)] = user
                 this.setState({userApi: newArray})
+                this.props.handleUserChange(newArray)
         })
         .catch(console.log)
     }
@@ -82,6 +83,7 @@ class UserContainer extends React.Component {
     }
 
     render(){
+        console.log("USER CONTAINER API",this.state.userApi)
         return(
             <div>
                 {/* <SignUp newUserSubmitHandler={this.newUserSubmitHandler} />
