@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import Welcome from './Components/Welcome.js';
+// import Welcome from './Components/Welcome.js';
 import DogContainer from './Containers/DogContainer.js';
 import UserContainer from './Containers/UserContainer.js';
 import MatchContainer from './Containers/MatchContainer.js';
 import LogIn from './Components/LogIn.js';
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom';
 
 class App extends React.Component {
 
@@ -105,11 +105,11 @@ class App extends React.Component {
     return(
         <div className="App">
           <Switch>
-          <Route path="/" exact render={() => <DogContainer dogSwipeHandler={this.dogSwipeHandler} matchClickHandler={this.matchClickHandler} user={this.state.user} />} /> 
-            <Route path="/welcome" component={Welcome} />
+          <Route path="/puppymagic" render={() => <DogContainer dogSwipeHandler={this.dogSwipeHandler} matchClickHandler={this.matchClickHandler} user={this.state.user} />} /> 
+            {/* <Route exact path="/" component={Welcome} /> */}
             <Route LogIn path="/login" component={LogIn} />
             <Route path="/users" component={UserContainer} /> 
-            <Route path="/matches" render={() => <MatchContainer matches={this.state.user.matched_dogs} matchDeleteHandler={this.matchDeleteHandler} user={this.state.user}/>} />
+            <Route path="/matches" render={() => <MatchContainer matches={this.state.user.matched_dogs} matchDeleteHandler={this.matchDeleteHandler} />} />
           </Switch>
 
           {/* <LogIn /> */}

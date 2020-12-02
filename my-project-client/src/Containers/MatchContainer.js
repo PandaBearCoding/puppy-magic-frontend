@@ -1,7 +1,7 @@
 import React from 'react';
 import MatchCard from '../Components/MatchCard.js';
 import NavBar from '../Components/NavBar.js';
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom';
 
 
 class MatchContainer extends React.Component{
@@ -11,7 +11,6 @@ class MatchContainer extends React.Component{
     }
 
     render(){ 
-        let userId = this.props.user.id
         if(!this.props.matches){
             return <h1>Matches are loading...</h1>
         }

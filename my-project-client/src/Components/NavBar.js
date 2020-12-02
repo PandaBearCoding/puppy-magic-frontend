@@ -1,5 +1,5 @@
-import React from 'react'
-import {MenuItems} from './MenuItems'
+import React from 'react';
+import {MenuItems} from './MenuItems';
 
 class NavBar extends React.Component{
 

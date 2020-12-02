@@ -2,6 +2,53 @@
   background-color: palevioletred;
 } */
 
+/* WELCOME */
+
+/* .welcomeCard{
+  background-image: url("https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/38635108_434429280387102_6961077985977827328_n.jpg?_nc_cat=101&ccb=2&_nc_sid=09cbfe&_nc_ohc=5M-8VLbqwecAX9Zilnn&_nc_ht=scontent-lga3-1.xx&oh=c0ff82be91a9b842ba58588e6c62ae92&oe=5FEA5BEE");
+  min-height: 800px;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+} */
+
+.welcomeH1{
+  font-family: "Lucinda Handwriting", cursive;
+  font-weight: bold;
+  font-size: 75px;
+  color: hotpink;
+  text-align: center;
+}
+
+.welcomePs{
+  font-size: 15px;
+  color: black;
+  font-family: "Georgia", serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+.welcomeButtons{
+  transition-duration: 0.3s;
+  float: left;
+  font-family: "Lucinda Handwriting", cursive;
+  font-weight: bold;
+  background-color: white;
+  color: hotpink;
+  font-size: 16px;
+  padding: 16px 10px 17px 250px;
+  border: none;
+  cursor: pointer;
+  border-radius: 40px;
+  text-align: center;
+}
+
+.welcomeButtons:hover {
+  background-color: white;
+  color: black;
+}
+
 /* DOG AND MATCH */
 
 .dogCardImage {

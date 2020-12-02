@@ -74,7 +74,7 @@ class UserCard extends React.Component {
                 <p className= "userCardPs">Do You Have A Yard?: <span className="userCardSpans">{has_yard}</span></p>
                 <p className= "userCardPs">Do You Live Near A Park?: <span className="userCardSpans">{near_park}</span></p>
                 <p className= "userCardPs">Desired Dog's Distance From You (mi): <span className="userCardSpans">{distance}</span></p>
-                <NavLink to={`/matches`}>
+                <NavLink to="/matches">
                     <button>View My Matches</button>
                 </NavLink>
                 <button onClick={this.updateClickHandler}>Edit Profile</button>

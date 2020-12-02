@@ -1,11 +1,13 @@
 import React from 'react';
 import DogCard from '../Components/DogCard.js';
 import NavBar from '../Components/NavBar.js';
+import Welcome from '../Components/Welcome.js';
+import { Route, Switch } from 'react-router-dom';
 
 class DogContainer extends React.Component {
 
     state = {
-        token: {token_type: "Bearer", expires_in: 3600, access_token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJuSDVyaGVZelZpRlFlM1JXcFFZV0IwZ3oyRnR4M2tPSEwyMDhXZlJGU0diUHUzUGY5NCIsImp0aSI6IjcyNTk1M2RiMThlZGQ5YTNhYzJjMzM1YTFlMGJkYWE4YzlmMzVjZDQwZmM5NDk1ZmJjMWFkMWQyZjc5MTlhZmU0N2Q3ZjdmOGI3NWQ4Mjc1IiwiaWF0IjoxNjA2ODcyMjA1LCJuYmYiOjE2MDY4NzIyMDUsImV4cCI6MTYwNjg3NTgwNSwic3ViIjoiIiwic2NvcGVzIjpbXX0.h4e7aTm1NkdpHyNlvqkXWCUuHEdHXwzXKhnRr7bDEi5kQ0xxRowRBcAGIaWzbwTk4CwBsR5QzeyY8WbQvWCKn_rppdTC4NGT4zs6h_rWJ9VVYHm4Bef7UbmAdhlBan0vQMREZw8vKHVewjmOHu188aFJngJapcbe5sD-CbMJgvH1EhDNcZMyK1A8FiHWfLGCAPSN0rvjcl1cFCNEXc9P0u-dq_GLi1FghX6EjW0SxeQQAt6S0X-kQtwLGOs1KkuLld3aZUt5OMai9XXgkXU3mp38wxLM9BLsZ2TBKTjbD7fmO7UrHmloMbr3kSMjxU3mcz1VqxPr7DhJX03_3yVgsw"},
+        token: {token_type: "Bearer", expires_in: 3600, access_token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJuSDVyaGVZelZpRlFlM1JXcFFZV0IwZ3oyRnR4M2tPSEwyMDhXZlJGU0diUHUzUGY5NCIsImp0aSI6ImE3ZjkzMzU5YzVjY2NiYzEwMWQzNjU1Yzg1MDM1NzYwYTkyY2NjNzQ4MWFmOWIwN2VmODhmZjljZjI5NTAxOTY1NzkzMGIzMmNkYmNkNWNhIiwiaWF0IjoxNjA2ODc5Njc4LCJuYmYiOjE2MDY4Nzk2NzgsImV4cCI6MTYwNjg4MzI3OCwic3ViIjoiIiwic2NvcGVzIjpbXX0.fhJr4Lx8NhMAOdWasKKdQai3bkIQ4fh4DhPbtCLKKWs8-YQX8bXM9A7VC6KgIfer7ywlQxu0QeUpxHEtHof7TyfaLZjTldY32rQQsDSXogfHEjQOgHlP7ZI83YG3lbCBgfpnVaK8EelqnpOXAZZ3I8FKblNqGWG0dGWNB1fzu_F_UI-SDX6NFQ_g_bvxjhyRURf7zpgmCwKTi7fAoKZLZbnPf6pncflEpu1sFShzstoo1ONGHxvv8F0oo40pVPWKRjJWDQTLuTSNmqTjk14vBKmamjVAtxSNnGvzrE1zzGecLR2YfmG5K10RsweDSkwzJjX76ZsRkgqn3XwkPDbotw"},
         dogApi: [],
         index: 0,
         distance: 100, 
@@ -17,7 +19,7 @@ class DogContainer extends React.Component {
     // 1st Fetch: POST request for API to generate a new token for us
     // 2nd Fetch: GET all dogs from API
     componentDidMount() {
-
+       
         // fetch("https://api.petfinder.com/v2/oauth2/token", {
         // method: "POST",
 	    // body: "grant_type=client_credentials&client_id=" + key + "&client_secret=" + secret,
@@ -48,21 +50,46 @@ class DogContainer extends React.Component {
         return (<DogCard key={currentDog.name} dog={currentDog} dogSwipeHandler={this.props.dogSwipeHandler} matchClickHandler={this.props.matchClickHandler} incrementIndex={this.incrementIndex} />)
     }
 
+    renderDogsForWelcome = () => {
+        return this.state.dogApi.map((el) => <Welcome key={el.id} dog={el} />)
+    }
+
     render(){
         // console.log(this.props.user)
         // console.log("To Get Token", this.state.token)
         // console.log("Dogs from API", this.state.dogApi)
         return(
-        <>
-        <NavBar />
-            {this.state.dogApi.length > 0 ? 
-            <div>
-                <h1>{this.renderDogs()}</h1>
-            </div>
-            : 
-            <h1>Loading Dogs...</h1>
-            }
-        </>
+            <Switch>
+                <Route path="/puppymagic/welcome" render={() => {
+                    return(
+                        <div className="welcome">
+                            {this.state.dogApi.length > 0 ?
+                            <div>
+                                <Welcome dog={this.renderDogsForWelcome()} />
+                            </div>
+                            :
+                            <h1>Loading Dogs...</h1>
+                            }
+                        </div>
+                    )
+                }} />
+                <Route path="/puppymagic" render={() => {
+                    return(
+                        <div>
+                            <NavBar />
+                            {this.state.dogApi.length > 0 ?
+                            <div>
+                                <div>{this.renderDogs()}</div>
+                            </div>
+                            : 
+                            <h1>Loading Dogs...</h1>
+                            }
+                        </div>
+                    )
+                }}/>
+            </Switch>
+             
+   
         )
     }
 }

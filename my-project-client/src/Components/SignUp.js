@@ -1,5 +1,5 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 class SignUp extends React.Component {
     state = {
@@ -47,7 +47,7 @@ class SignUp extends React.Component {
                     <input name="has_yard" type="text" placeholder="have a yard?" value={this.state.has_yard} onChange={this.changeHandler} />
                     <input name="near_park" type="text" placeholder="near a park?" value={this.state.near_park} onChange={this.changeHandler} />
                     <input name="distance" type="text" placeholder="desired dog's distance from you (mi)" value={this.state.distance} onChange={this.changeHandler} />
-                    <NavLink to="/">
+                    <NavLink to="/puppymagic">
                         <button className="formbutton">Create Profile</button>
                     </NavLink>
                 </form>

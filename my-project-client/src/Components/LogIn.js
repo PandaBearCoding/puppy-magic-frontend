@@ -1,6 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom'
-
+import { NavLink } from 'react-router-dom';
 class LogIn extends React.Component {
 
     changeHandler = (e) => {
@@ -16,11 +15,8 @@ class LogIn extends React.Component {
                         <div className="logInInput">
                             <input type="username" name="username" placeholder="Username" onChange={this.changeHandler} />
                             <input type="password" name="password" placeholder="Password" onChange={this.changeHandler} />
-                            <NavLink to="/">
+                            <NavLink to="/puppymagic">
                                 <button className="loginbutton" type="submit">Log In</button>
-                            </NavLink>
-                            <NavLink to="/users/signup">
-                                <button className="loginbutton" type="submit">Sign Up</button>
                             </NavLink>
                         </div>
                     </form>

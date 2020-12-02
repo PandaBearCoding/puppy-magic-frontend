@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
 
 class MatchCard extends React.Component{
     // state = {
@@ -20,7 +20,6 @@ class MatchCard extends React.Component{
     
     render(){
         let { name, profile_picture } = this.props.match
-    //    console.log("match props DAWGGGG", this.props.match)
         return(
             <div className="matchCard" >
                 <h1 className="dogAndMatchCardName">{name}</h1>
