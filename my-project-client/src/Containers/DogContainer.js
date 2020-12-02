@@ -1,13 +1,13 @@
 import React from 'react';
 import DogCard from '../Components/DogCard.js';
 import NavBar from '../Components/NavBar.js';
-import Welcome from '../Components/Welcome.js';
+import WelcomeContainer from './WelcomeContainer.js';
 import { Route, Switch } from 'react-router-dom';
 
 class DogContainer extends React.Component {
 
     state = {
-        token: {token_type: "Bearer", expires_in: 3600, access_token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJuSDVyaGVZelZpRlFlM1JXcFFZV0IwZ3oyRnR4M2tPSEwyMDhXZlJGU0diUHUzUGY5NCIsImp0aSI6ImE3ZjkzMzU5YzVjY2NiYzEwMWQzNjU1Yzg1MDM1NzYwYTkyY2NjNzQ4MWFmOWIwN2VmODhmZjljZjI5NTAxOTY1NzkzMGIzMmNkYmNkNWNhIiwiaWF0IjoxNjA2ODc5Njc4LCJuYmYiOjE2MDY4Nzk2NzgsImV4cCI6MTYwNjg4MzI3OCwic3ViIjoiIiwic2NvcGVzIjpbXX0.fhJr4Lx8NhMAOdWasKKdQai3bkIQ4fh4DhPbtCLKKWs8-YQX8bXM9A7VC6KgIfer7ywlQxu0QeUpxHEtHof7TyfaLZjTldY32rQQsDSXogfHEjQOgHlP7ZI83YG3lbCBgfpnVaK8EelqnpOXAZZ3I8FKblNqGWG0dGWNB1fzu_F_UI-SDX6NFQ_g_bvxjhyRURf7zpgmCwKTi7fAoKZLZbnPf6pncflEpu1sFShzstoo1ONGHxvv8F0oo40pVPWKRjJWDQTLuTSNmqTjk14vBKmamjVAtxSNnGvzrE1zzGecLR2YfmG5K10RsweDSkwzJjX76ZsRkgqn3XwkPDbotw"},
+        token: {token_type: "Bearer", expires_in: 3600, access_token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJuSDVyaGVZelZpRlFlM1JXcFFZV0IwZ3oyRnR4M2tPSEwyMDhXZlJGU0diUHUzUGY5NCIsImp0aSI6ImZkYmY0NWNkNjJiYWZiYzBmNWEyZDllNDI1NGVlMWE1MTVjYzcxNDM5ZGMwZmQ0OTE4NjkwZDExMDcyMjQ3OTI2ODRhMDYyMTIwNWM5MmI2IiwiaWF0IjoxNjA2ODgzNzEyLCJuYmYiOjE2MDY4ODM3MTIsImV4cCI6MTYwNjg4NzMxMiwic3ViIjoiIiwic2NvcGVzIjpbXX0.pg2SQANuyDUeS40N23ox6909mqoeQOMuU75uOC0SwiDxbc5D3Rh87fZ_t2IUeN3XR-CkHPpquxg_pY2KX5STWxeSebUkq0wtjNFWWd0H1s8fBR0N6BBKbeHOqqOGWq2G5bbiJD150K3Kg3Upeqb6TbhgcRHmgAZ9aO7xPwvoSVjHh0BwWGL-cU_f6XcjJUhlWVNj-32ea15VYOqQWYm3tq7O2TmQof1aE3kuP0HmsogJHg978Xv8vCSl8-Eolem2aVPSfM6JJtROrM0M1ftGZ8I2jzy-nNRzxh3kqAVHTrhc4tedI-EOFWJmSDDRRPNJFeoqx867vfBcTaeJjENmwQ"},
         dogApi: [],
         index: 0,
         distance: 100, 
@@ -50,10 +50,6 @@ class DogContainer extends React.Component {
         return (<DogCard key={currentDog.name} dog={currentDog} dogSwipeHandler={this.props.dogSwipeHandler} matchClickHandler={this.props.matchClickHandler} incrementIndex={this.incrementIndex} />)
     }
 
-    renderDogsForWelcome = () => {
-        return this.state.dogApi.map((el) => <Welcome key={el.id} dog={el} />)
-    }
-
     render(){
         // console.log(this.props.user)
         // console.log("To Get Token", this.state.token)
@@ -65,7 +61,7 @@ class DogContainer extends React.Component {
                         <div className="welcome">
                             {this.state.dogApi.length > 0 ?
                             <div>
-                                <Welcome dog={this.renderDogsForWelcome()} />
+                                <WelcomeContainer dogApi={this.state.dogApi} />
                             </div>
                             :
                             <h1>Loading Dogs...</h1>

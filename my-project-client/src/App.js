@@ -14,7 +14,7 @@ class App extends React.Component {
   }
 
   componentDidMount(){
-    fetch("http://localhost:4000/api/v1/users/61")
+    fetch("http://localhost:4000/api/v1/users/65")
     .then(resp => resp.json())
     .then(user => (this.setState({user: user})))
     .catch(console.log)
@@ -24,7 +24,7 @@ class App extends React.Component {
     if (direction === "right"){
       // console.log("DOG OBJ FROM API INSIDE FIRST FETCH", dog)
       // console.log("DIRECITON", direction)
-      let newDog = {name: dog.name, profile_picture: dog.primary_photo_cropped.full, age: dog.age, postcode: dog.contact.address.postcode, description: dog.description, organization: dog.contact.email, breed: dog.breeds.primary, size: dog.size, gender: dog.gender, good_with_cats: dog.environment.cats, good_with_dogs: dog.environment.dogs, good_with_children: dog.environment.children, house_trained: dog.attributes.house_trained, spayed_neutered: dog.attributes.spayed_neutered, special_needs: dog.attributes.special_needs, distance: dog.distance}
+      let newDog = {name: dog.name, profile_picture: dog.primary_photo_cropped.full, age: dog.age, postcode: dog.contact.address.postcode, description: dog.description, organization: dog.contact.email, breed: dog.breeds.primary, size: dog.size, gender: dog.gender, good_with_cats: dog.environment.cats, good_with_dogs: dog.environment.dogs, good_with_children: dog.environment.children, house_trained: dog.attributes.house_trained, spayed_neutered: dog.attributes.spayed_neutered, special_needs: dog.attributes.special_needs, distance: dog.distance, url: dog.url}
       // console.log("NEW DOG IN DB", newDog)
       // console.log("USER", this.state.user)
       fetch("http://localhost:4000/api/v1/dogs", {

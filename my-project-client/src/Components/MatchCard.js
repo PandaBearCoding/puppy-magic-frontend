@@ -22,7 +22,7 @@ class MatchCard extends React.Component{
         let { name, profile_picture } = this.props.match
         return(
             <div className="matchCard" >
-                <h1 className="dogAndMatchCardName">{name}</h1>
+                <h1 className="matchAndDogCardName">{name}</h1>
                 <NavLink to={`/matches/${this.props.match.id}`}>
                 <img className= "dogAndMatchCardImage" alt="" src={
                             profile_picture != null
@@ -33,6 +33,7 @@ class MatchCard extends React.Component{
                             }
                 />
                 </NavLink>
+                <p className="matchDogandWelcomeCardPs">For More Info: <a className="matchDogAndWelcomeCardATags" href={this.props.match.url}> PetFinder Profile </a></p>
                 <br></br>
                 <div>
                     <button className="matchCardDeleteButton" onClick={this.localDeleteHandler}>❌</button>

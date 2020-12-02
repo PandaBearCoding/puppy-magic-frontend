@@ -65,14 +65,14 @@ class UserCard extends React.Component {
                 <h1 className="userName">{name}</h1>
                 <h3 className="userUserName">{username}</h3>
                 <img className="userProfileImage" alt="" src={profile_picture}/>
-                <p className= "userCardPs"> Postal Code: <span className="userCardSpans">{postcode}</span></p>
+                <p className= "userCardPs">Summary: <span className="userCardSpans">{description}</span></p>
                 <p className= "userCardPs"> Age: <span className="userCardSpans">{age}</span></p>
                 <p className= "userCardPs">Phone Number: <span className="userCardSpans">{phone_number}</span></p>
                 <p className= "userCardPs">Email: <span className="userCardSpans">{email}</span></p>
-                <p className= "userCardPs">Summary: <span className="userCardSpans">{description}</span></p>
                 <p className= "userCardPs">Housing Type: <span className="userCardSpans">{housing_type}</span></p>
                 <p className= "userCardPs">Do You Have A Yard?: <span className="userCardSpans">{has_yard}</span></p>
                 <p className= "userCardPs">Do You Live Near A Park?: <span className="userCardSpans">{near_park}</span></p>
+                <p className= "userCardPs"> Postcode: <span className="userCardSpans">{postcode}</span></p>
                 <p className= "userCardPs">Desired Dog's Distance From You (mi): <span className="userCardSpans">{distance}</span></p>
                 <NavLink to="/matches">
                     <button>View My Matches</button>

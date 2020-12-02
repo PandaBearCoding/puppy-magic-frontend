@@ -1,17 +1,9 @@
-/* body{
-  background-color: palevioletred;
-} */
-
 /* WELCOME */
 
-/* .welcomeCard{
-  background-image: url("https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/38635108_434429280387102_6961077985977827328_n.jpg?_nc_cat=101&ccb=2&_nc_sid=09cbfe&_nc_ohc=5M-8VLbqwecAX9Zilnn&_nc_ht=scontent-lga3-1.xx&oh=c0ff82be91a9b842ba58588e6c62ae92&oe=5FEA5BEE");
-  min-height: 800px;
-  background-position: top;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-} */
+.welcomeImage{
+  min-height: 150px;
+  float: left;
+}
 
 .welcomeH1{
   font-family: "Lucinda Handwriting", cursive;
@@ -36,17 +28,34 @@
   font-weight: bold;
   background-color: white;
   color: hotpink;
-  font-size: 16px;
-  padding: 16px 10px 17px 250px;
+  font-size: 30px;
+  padding: 0px 200px 0px 700px;
   border: none;
   cursor: pointer;
-  border-radius: 40px;
   text-align: center;
 }
 
 .welcomeButtons:hover {
   background-color: white;
   color: black;
+}
+
+.welcomeDogCard{
+  padding: 0px 0px 0px 3px;
+  float:left; display:inline; width: 33%;
+}
+
+.welcomeCardImage {
+  height: auto; 
+  width: auto; 
+  max-width: 300px; 
+  max-height: 300px;
+  border-radius: 30px;
+}
+
+.welcomeCardName{
+  color: hotpink;
+  font-size: 35px;
 }
 
 /* DOG AND MATCH */
@@ -66,13 +75,20 @@
   text-align: center;
 }
 
-.dogCardPs{
+.dogCardSpans{
+  font-size: 15px;
+  color: black;
+  font-family: "Georgia", serif;
+  font-weight: bold;
+}
+
+.matchDogandWelcomeCardPs{
   color: hotpink;
   font-size: 20px;
   font-family: "Lucinda Handwriting", cursive;
 }
 
-.dogCardSpans{
+.matchDogAndWelcomeCardATags{
   font-size: 15px;
   color: black;
   font-family: "Georgia", serif;
@@ -89,9 +105,10 @@
   border-radius: 50px;
 }
 
-.dogAndMatchCardName{
+
+.matchAndDogCardName{
   color: hotpink;
-  font-size: 65px;
+  font-size: 75px;
 }
 
 .matchCard{
@@ -202,8 +219,8 @@
 
 .puppyMagicIcon {
   background-image: url("https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/38635108_434429280387102_6961077985977827328_n.jpg?_nc_cat=101&ccb=2&_nc_sid=09cbfe&_nc_ohc=5M-8VLbqwecAX9Zilnn&_nc_ht=scontent-lga3-1.xx&oh=c0ff82be91a9b842ba58588e6c62ae92&oe=5FEA5BEE");
-  min-height: 800px;
-  background-position: top;
+  min-height: 300px;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -220,7 +237,7 @@
   display: block;
 	width: 200px;
 	float: left;
-  margin-left: 125px;
+  margin-left: 130px;
   font-family: "Lucinda Handwriting", cursive;
 }
 
@@ -229,7 +246,7 @@
   color: black;
   font-weight: bold;
   text-align: center;
-  padding: 650px 0px 0px 0px;
+  padding: 150px 0px 0px 0px;
   text-decoration: none;
   font-size: 45px;
 }
