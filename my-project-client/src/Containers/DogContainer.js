@@ -7,7 +7,7 @@ import { Route, Switch } from 'react-router-dom';
 class DogContainer extends React.Component {
 
     state = {
-        token: {token_type: "Bearer", expires_in: 3600, access_token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJuSDVyaGVZelZpRlFlM1JXcFFZV0IwZ3oyRnR4M2tPSEwyMDhXZlJGU0diUHUzUGY5NCIsImp0aSI6IjU4OTZjZWY0MGUxZmZhNTZjMGFhZGNiMDRkYjY4MTRjOTFiMWVhYTkxNWM4MzBiZGQ4Yjc0YzE2MTI5ZDIzOWZkOGQzYzhiZWQ4ZjU4M2JlIiwiaWF0IjoxNjA2OTQ3OTI4LCJuYmYiOjE2MDY5NDc5MjgsImV4cCI6MTYwNjk1MTUyOCwic3ViIjoiIiwic2NvcGVzIjpbXX0.PlGWxyqp-F-ko1OWpSQcNFnVZ01jGekNNcD0PNMT8OHA1gmlhR8hootagGQ1kD2jGQgILjvRrdM2KsPUjqky1wnzHwlZI0OycMAupJo-q0z6CiZegH9LN6sspGLtkruWfM7NplDWGVHTWLqSTIquTJ4QNN8FqYkELkf-TNi0D-yG5tT0OkQT7xF_wKdIJdNxhQdsCvtk9Hh75Zh5TcGqIU3zvN_C6AQf6stXPSGlEh8gE0Y-LyEAqKQPgUKX8-cGcCl_upahkgqM2XBDn13-pCIsiX3UQBquUjkCcM5fyd8zY88DvoRKGxOH3mewUttWC6jkWUSmZLrv_HrsiYCakA"},
+        token: {token_type: "Bearer", expires_in: 3600, access_token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJuSDVyaGVZelZpRlFlM1JXcFFZV0IwZ3oyRnR4M2tPSEwyMDhXZlJGU0diUHUzUGY5NCIsImp0aSI6ImU0ZjAzY2FjZDY1NmJlY2M4MDExY2M3MDYyNGE3MDY2MWI5MGQ3NDg4NjZjOTk0MzEzMzY0NjllYjU0OTUzYTU3Yjk4ZTM1ZDE3YmI2NjcwIiwiaWF0IjoxNjA3MDA2MzA4LCJuYmYiOjE2MDcwMDYzMDgsImV4cCI6MTYwNzAwOTkwOCwic3ViIjoiIiwic2NvcGVzIjpbXX0.KKXcLEoH3o1HBnNMjZrYdVoYY_OT1Nxu88FB1bP7Hclj3z6yOzQHQhU79CdJj4CQXowyMqRbuBXXsEGfulpS5t6QMLIwrm4qkLsrzcqjIWjEo7jyrJ3zs6so9CK_sDbZIOFO4Kv-zTYgj6P5foJFfI2cBYrq0CxolD5yVFYIlni9eMjoC4HTMnP4pVA-OBOC6GiV2-w_gWj00yBpxYsrLQ-Pb4IFVWyud4G1Y_7n7VWfLc3qBwsRxOvObc0LKcNRdKxG0s6SYSwKsOioFtQpANe1frfduxy8CeThcKcTQZd2pIjXM91HAjwzAbD9c_J8gaGUhkyyyufGehh7Za3WOg"},
         dogApi: [],
         index: 0,
         distance: 100, 
@@ -21,16 +21,16 @@ class DogContainer extends React.Component {
     // 1st Fetch: POST request for API to generate a new token for us
     // 2nd Fetch: GET all dogs from API
     componentDidMount() {
-      
-        // fetch("https://api.petfinder.com/v2/oauth2/token", {
-        // method: "POST",
-	    // body: "grant_type=client_credentials&client_id=" + key + "&client_secret=" + secret,
-	    // headers: {
-        //     "content-type": "application/x-www-form-urlencoded"
-	    // }
-        // })
-        // .then(response => response.json())
-        // .then(data => this.setState({token: data}))
+        
+        fetch("https://api.petfinder.com/v2/oauth2/token", {
+        method: "POST",
+	    body: "grant_type=client_credentials&client_id=" + key + "&client_secret=" + secret,
+	    headers: {
+            "content-type": "application/x-www-form-urlencoded"
+	    }
+        })
+        .then(response => response.json())
+        .then(data => this.setState({token: data}))
 
         // console.log("CDM", this.props.user.distance)
         // console.log("CDM", this.props.user.postcode)

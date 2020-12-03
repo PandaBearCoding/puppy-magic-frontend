@@ -52,7 +52,6 @@
   left: 345px;
   bottom: 40px;
   background: transparent;
-
 }
 
 .welcomeDogCard{
@@ -120,7 +119,6 @@
   border-radius: 50px;
 }
 
-
 .matchAndDogCardName{
   color: hotpink;
   font-size: 75px;
@@ -187,49 +185,6 @@
   font-weight: bold;
 }
 
-/* LOG IN & SIGN UP */
-
-.logIn{
-  text-align: center;
-}
-
-.logIn{
-  width: 200px;
-  padding: 20px;
-  margin: auto;
-}
-
-.logInForm{
-  padding:10px;
-  border: 2px;
-  margin: 5px 0;
-  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
-}
-
-.signUpLogInLogo{
-  height: 80%;
-  width: 90%;
-  padding: 10pix;
-  margin: 10pix;
-  text-align: center;
-  display: inline;
-  border-radius: 50px;
-}
-
-.signUp{
-  text-align: center;
-  width: 200px;
-  padding: 20px;
-  margin: auto;
-}
-
-.signUpForm{
-  padding:10px;
-  border: 2px;
-  margin: 5px 0;
-  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
-}
-
 /* NAV BAR */
 
 .puppyMagicIcon {
@@ -271,12 +226,17 @@
 }
 
 
+/* LOG IN & SIGN UP */
 
 
+.logInAndSignUpForm{
+  width: 200px;
+  padding: 20px;
+  margin: auto;
+  text-align: center;
+}
 
-/* SIGN UP LOG IN STUFF */
-
-/* input[type=text] {
+  input[type=text] {
   padding:10px;
   border: 2px;
   margin: 5px 0;
@@ -290,18 +250,64 @@ input[type=number] {
   box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
 }
 
-input[type=placeholder] {
+input::placeholder {
   text-align: center;
-} */
+  text-align: auto;
+} 
 
-/* .formbutton{
-  border-radius: 10px;
-  color: rgb(0, 108, 250);
+.formbutton{
+  border-radius: 5px;
+  background: transparent;
   font-size: 15px;
-} */
+  font-family: "Lucinda Handwriting", cursive;
+  font-weight: bold;
+  color: hotpink;
+}
 
-/* .formbutton:hover {
-  background-color: orange;
+.formbutton:hover {
+  color: black;
   cursor: pointer;
-} */
+}
+
+.signUpLogInLogo{
+  height: 80%;
+  width: 90%;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  display: inline;
+  border-radius: 50px;
+}
+
+.logIn{
+  text-align: center;
+}
+
+.logIn{
+  width: 200px;
+  padding: 20px;
+  margin: auto;
+}
+
+.logInForm{
+  padding: 10px;
+  border: 2px;
+  margin: 5px 0;
+  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+}
+
+
+.signUp{
+  text-align: center;
+  width: 200px;
+  padding: 20px;
+  margin: auto;
+}
+
+.signUpForm{
+  padding:10px;
+  border: 2px;
+  margin: 5px 0;
+  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+}
 
